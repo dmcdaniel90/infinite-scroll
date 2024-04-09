@@ -1,5 +1,5 @@
 'use strict'
-
+import 'dotenv/config'
 interface Photo {
   urls: {
     regular: string
@@ -26,7 +26,7 @@ let totalImages: number = 0
 let photosArray: Array<Photo> = []
 
 // Unsplash API
-const ACCESS_KEY: string = 'yNiXBS7E0BE1WsNM4QbzcdNxtA7AdMzxUCHAs6Fy4i0'
+const ACCESS_KEY = process.env.UNSPLASH_API_KEY
 const apiURL: string = `https://api.unsplash.com/photos/random/?client_id=${ACCESS_KEY}&count=${requestCount}`
 
 // On load
