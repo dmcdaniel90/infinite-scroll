@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Arya:wght@400;700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Arya', sans-serif;
+  background-color: hsl(0, 0%, 90%);
+}
+
+h1 {
+  text-align: center;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+}
+
+
+
+/* Loader */
+
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: hsla(0, 100%, 100%, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+}
+.loader .loading-bar {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid hsl(240, 70%, 70%);
+  border-radius: 50%;
+  animation: loading 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: hsl(240, 70%, 70%) transparent transparent transparent;
+}
+.loader .loading-bar:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.loader .loading-bar:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.loader .loading-bar:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Image Container */
+
+.image-container {
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container img {
+  max-height: 300px;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.image-container .img-link:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s;
+}
+
+.image-container .img-link {
+  background-color: hsla(180, 60%, 80%, 0.5);
+}
+
+/* Helper classes */
+
+.hidden {
+  display: none;
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.error-image {
+  height: 300px;
+  width: 100%;
+}
+
+.retry-button {
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  box-shadow: 0 0 5px inset hsla(180, 0%, 0%, 0.5);
+  background: linear-gradient(to bottom, hsl(180, 70%, 60%), hsl(180, 70%, 40%));
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.retry-button:hover {
+  background: linear-gradient(to bottom, hsl(180, 70%, 50%), hsl(180, 70%, 30%));
+}
+
+.retry-button:active {
+  transform: translateY(2px);
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.25rem;
+  }
+
+  .image-container {
+    margin: 0.825rem;
+  }
+}
